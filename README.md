@@ -27,16 +27,22 @@
 ```
 solutions/
 ├── week1/
-│   ├── 본인이름1/
+│   ├── hayoung/
 │   │   ├── BOJ_어린_왕자.cpp
 │   │   ├── Programmers_가장_큰_수.sql
-│   ├── 본인이름2/
+│   ├── semin/
 │   │   ├── BOJ_어린_왕자.java
 │   │   └── Programmers_가장_큰_수.sql
+│   ├── sohee/
+│   ├── ujin/
+│   ├── wonbin/
 │
 ├── week2/
-│   ├── 본인이름1/
-│   └── 본인이름2/
+│   ├── hayoung/
+│   └── semin/
+│   └── sohee/
+│   └── ujin/
+│   └── wonbin/
 ```
 
 #### 파일 이름 
