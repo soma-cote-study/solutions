@@ -34,14 +34,14 @@ solutions/
 │   │   ├── BOJ_어린_왕자.java
 │   │   └── Programmers_가장_큰_수.sql
 │   ├── sohee/
-│   ├── ujin/
+│   ├── yujin/
 │   ├── wonbin/
 │
 ├── week2/
 │   ├── hayoung/
 │   └── semin/
 │   └── sohee/
-│   └── ujin/
+│   └── yujin/
 │   └── wonbin/
 ```
 
