@@ -11,7 +11,7 @@ void go(int depth) {
     }
     for (int i = 1; i <= n; i++) {
         a[depth] = i;
-        if (i >= a[depth-1]) go(depth+1);
+        if (depth == 0 || i >= a[depth-1]) go(depth+1);
     }
 }
 int main() {
