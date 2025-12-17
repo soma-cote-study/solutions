@@ -11,11 +11,9 @@ void go(int depth) {
         return;
     }
     for (int i = 1; i <= n; i++) {
-        if (i > a[depth-1] && !visited[i]) {
-            visited[i] = 1;
+        if (i > a[depth-1]) {
             a[depth] = i;
             go(depth + 1);
-            visited[i] = 0;
         }
     }
 }
