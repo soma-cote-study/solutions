@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 int n, m, r, a[304][304], num;
-vector<int> temp, level[154];
+vector<int> temp;
 int main() {
 	ios_base::sync_with_stdio(false);
 	cin.tie(NULL); cout.tie(NULL);
