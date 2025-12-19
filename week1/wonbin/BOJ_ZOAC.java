@@ -40,4 +40,5 @@ class Main {
         search(min + 1, end);
         search(start, min - 1);
     }
+
 }
