@@ -4,7 +4,7 @@ const input = fs.readFileSync('/dev/stdin').toString().trim().split('\n');
 const [H, W] = input[0].split(' ').map(Number);
 const heights = input[1].split(' ').map(Number);
 
-function solution(H, W, heights) {
+function solution(W, heights) {
   let totalWater = 0;
 
   for (let i = 1; i < W - 1; i++) {
