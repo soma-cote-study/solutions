@@ -14,6 +14,7 @@ class Main {
         search(0, input.length() - 1);
     }
 
+    
     static void search(int start, int end){
         if(start > end) return;
 
