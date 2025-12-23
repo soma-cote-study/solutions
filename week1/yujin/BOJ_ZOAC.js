@@ -31,5 +31,4 @@ function solution(str) {
   divide(0, n - 1);
   console.log(result.join('\n'));
 }
-
 solution(input);
