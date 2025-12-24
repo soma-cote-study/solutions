@@ -36,6 +36,7 @@ public class Main{
                 Rain += bound - block[i];
             }
         }
+
         System.out.println(Rain);
     }
 }
