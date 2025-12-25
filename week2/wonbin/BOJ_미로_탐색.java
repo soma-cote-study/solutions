@@ -1,84 +1,64 @@
 import java.util.*;
 import java.io.*;
-public class Main{
-    static int R, C, N;
-    static char[][] map;
-    static int[] dr = {-1, 1, 0, 0};
-    static int[] dc = {0, 0, -1, 1};
+
+public class Main {
+    static final int[] dx = {0, 0, -1, 1};
+    static final int[] dy = {-1, 1, 0, 0};
+
+    static class Node {
+        int x, y, distance;
+
+        Node(int x, int y, int distance) {
+            this.x = x;
+            this.y = y;
+            this.distance = distance;
+        }
+    }
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
 
-        R = Integer.parseInt(st.nextToken());
-        C = Integer.parseInt(st.nextToken());
-        N = Integer.parseInt(st.nextToken());
+        int N = Integer.parseInt(st.nextToken());
+        int M = Integer.parseInt(st.nextToken());
 
-        map = new char[R][C];
-        for(int i = 0; i < R; i++){
+        int[][] maze = new int[N][M];
+        for (int i = 0; i < N; i++) {
             String line = br.readLine();
-            map[i] = line.toCharArray();
-        }
-
-        if(N % 2 == 0){
-            fill();
-            printMap();
-        }else if(N == 1){
-            printMap();
-        }else {
-            bomb();
-
-            if(N % 4 == 1){
-                bomb();
-            }
-            printMap();
-        }
-    }
-
-    static void fill(){
-        for(int i = 0; i < R; i++){
-            for(int j = 0; j < C; j++){
-                map[i][j] = 'O';
+            for (int j = 0; j < M; j++) {
+                maze[i][j] = line.charAt(j) - '0';
             }
         }
+
+        int answer = search(maze, N, M);
+        System.out.println(answer);
     }
 
-    static void bomb(){
-        List<int[]> bombs = new ArrayList<>();
+    static int search(int[][] maze, int N, int M){
+        boolean[][] visited = new boolean[N][M];
+        Queue<Node> queue = new LinkedList<>();
 
-        for(int i = 0; i < R; i++){
-            for(int j = 0; j < C; j++){
-                if(map[i][j] == 'O'){
-                    bombs.add(new int[]{i, j});
+        queue.offer(new Node(0, 0, 1));
+        visited[0][0] = true;
+
+        while (!queue.isEmpty()) {
+            Node current = queue.poll();
+
+            if (current.x == N - 1 && current.y == M - 1) {
+                return current.distance;
+            }
+
+            for (int i = 0; i < 4; i++) {
+                int nx = current.x + dx[i];
+                int ny = current.y + dy[i];
+
+                if (nx >= 0 && nx < N && ny >= 0 && ny < M && maze[nx][ny] == 1 && !visited[nx][ny]) {
+                    visited[nx][ny] = true;
+                    queue.offer(new Node(nx, ny, current.distance + 1));
                 }
             }
         }
-        fill();
 
-        for(int[] b: bombs){
-            int r = b[0];
-            int c = b[1];
-
-            map[r][c] = '.';
-            for(int k = 0; k < 4; k++){
-                int nr = r + dr[k];
-                int nc = c + dc[k];
-
-                if(nr >= 0 && nc >= 0 && nr < R && nc < C){
-                    map[nr][nc] = '.';
-                }
-            }
-        }
-    }
-
-    static void printMap(){
-        StringBuilder sb = new StringBuilder();
-        for(int i = 0; i < R; i++){
-            for(int j = 0; j < C; j++){
-                sb.append(map[i][j]);
-            }
-            sb.append("\n");
-        }
-        System.out.print(sb);
+        return -1;
     }
 }
