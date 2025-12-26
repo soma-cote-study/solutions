@@ -1,36 +1,44 @@
-const input = require('fs')
-  .readFileSync('/dev/stdin')
-  .toString()
-  .trim()
-  .split('\n');
+const fs = require('fs');
+const filePath = process.platform === 'linux' ? '/dev/stdin' : './input.txt';
+const input = fs.readFileSync(filePath).toString().trim();
 
-const [yMax, xMax] = input.shift().split(' ');
+function solution(input) {
+  const parseInput = input.split(`\n`);
+  const [N, M] = parseInput[0].split(' ').map(Number);
+  const arr = parseInput.slice(1).map(a => a.split('').map(Number));
 
-const map = input.map(v => v.split('').map(x => +x));
+  const dx = [1, 0, -1, 0];
+  const dy = [0, 1, 0, -1];
 
-const stack = [[0, 0, 1]];
+  const visited = Array.from({ length: N }, () => new Array(M).fill(false));
+  const queue = [];
 
-const dir = [
-  [0, 1],
-  [0, -1],
-  [1, 0],
-  [-1, 0],
-];
+  queue.push([0, 0, 1]);
+  visited[0][0] = true;
 
-while (stack.length) {
-  const [x, y, dis] = stack.shift();
+  while (queue.length) {
+    const [x, y, count] = queue.shift();
 
-  for (let i = 0; i < 4; i++) {
-    const xPos = x + dir[i][0];
-    const yPos = y + dir[i][1];
+    if (x === N - 1 && y === M - 1) {
+      return count;
+    }
 
-    if (0 <= xPos && yPos > -1 && xPos < xMax && yPos < yMax) {
-      if (map[yPos][xPos] === 1) {
-        map[yPos][xPos] = dis + 1;
-        stack.push([xPos, yPos, dis + 1]);
+    for (let i = 0; i < 4; i++) {
+      const nx = dx[i] + x;
+      const ny = dy[i] + y;
+      if (
+        nx >= 0 &&
+        nx < N &&
+        ny >= 0 &&
+        ny < M &&
+        arr[nx][ny] === 1 &&
+        visited[nx][ny] == false
+      ) {
+        visited[nx][ny] = true;
+        queue.push([nx, ny, count + 1]);
       }
     }
   }
 }
 
-console.log(map[yMax - 1][xMax - 1]);
+console.log(solution(input));
