@@ -30,20 +30,20 @@ solutions/
 ├── week1/
 │   ├── hayeounglee/
 │   │   ├── BOJ_어린_왕자.cpp
-│   │   ├── Programmers_가장_큰_수.sql
+│   │   └── Programmers_가장_큰_수.sql
 │   ├── semin/
 │   │   ├── BOJ_어린_왕자.java
 │   │   └── Programmers_가장_큰_수.sql
 │   ├── sohee/
 │   ├── wonbin/
-│   ├── yujin/
+│   └── yujin/
 │
 ├── week2/
 │   ├── hayeounglee/
 │   └── semin/
 │   └── sohee/
 │   └── wonbin/
-│   ├── yujin/
+│   └── yujin/
 ```
 
 #### 파일 이름 규칙
