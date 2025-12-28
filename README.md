@@ -28,25 +28,25 @@
 ```
 solutions/
 ├── week1/
-│   ├── hayoung/
+│   ├── hayeounglee/
 │   │   ├── BOJ_어린_왕자.cpp
 │   │   ├── Programmers_가장_큰_수.sql
 │   ├── semin/
 │   │   ├── BOJ_어린_왕자.java
 │   │   └── Programmers_가장_큰_수.sql
 │   ├── sohee/
-│   ├── yujin/
 │   ├── wonbin/
+│   ├── yujin/
 │
 ├── week2/
-│   ├── hayoung/
+│   ├── hayeounglee/
 │   └── semin/
 │   └── sohee/
-│   └── yujin/
 │   └── wonbin/
+│   ├── yujin/
 ```
 
-#### 파일 이름 
+#### 파일 이름 규칙
 - 백준 문제: `BOJ_문제이름.확장자` (예: `BOJ_어린_왕자.cpp`)
 - 프로그래머스 문제: `Programmers_문제이름.확장자` (예: `Programmers_가장_큰_수.py`, `Programmers_거리두기_확인하기.sql`)
 
@@ -82,8 +82,9 @@ solutions/
 - **PR 양식**: 템플릿 양식에 맞춰서 작성 ([PR 템플릿 보기](.github/pull_request_template.md))
 
 ### Code Review
-- PR에 코드 및 아이디어 리뷰 진행
+- **Code Review 주기**: **금요일, 화요일**에 코드리뷰 작성
 - 리뷰하고 싶은 코드 라인 옆의 + 버튼을 클릭하여 코멘트 작성
+- 혹은 PR 글 하단의 댓글창에 코멘트 작성
 
 ---
 
