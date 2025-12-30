@@ -12,6 +12,7 @@ void dfs(int cur, int start) {
     }
     visited[cur] = true;
     dfs(a[cur], start);
+    visited[cur] = false;
 }
 
 int main() {
@@ -22,7 +23,6 @@ int main() {
     for (int i = 1; i <= n; i++) cin >> a[i];
 
     for (int i = 1; i <= n; i++) {
-        memset(visited, 0, sizeof(visited));
         dfs(i, i);
     }
 
