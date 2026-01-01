@@ -52,6 +52,7 @@ class Main {
                     if (j != list.size() - 1) sb.append(",");
                 }
             }
+
             sb.append("]");
             System.out.println(sb.toString());
         }
