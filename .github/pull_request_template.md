@@ -5,7 +5,7 @@ PR 제목 형식:
 [Week N-M] 본인이름: 유형 (총 K문제)
 
 예:
-[Week 3-1] 김소희: 그래프 (다익스트라/플로이드/벨만포드), Queue / SUM MAX MIN, GROUP BY (총 15문제)
+[Week 3-2] 김소희: 그래프 (다익스트라/플로이드/벨만포드), Queue / SUM MAX MIN, GROUP BY (총 15문제)
 
 설명:
 - N은 몇 주차인지 작성합니다.
