@@ -9,6 +9,7 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         String input = br.readLine();
 
+
         search(input, 0);
 
         StringBuilder sb = new StringBuilder();
