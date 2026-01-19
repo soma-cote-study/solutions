@@ -47,6 +47,7 @@ public class Main{
                 for(int j = 0; j < MAX_NODE; j++){
                     if(graph[i][j] || (graph[i][k] && graph[k][j])){
                         graph[i][j] = true;
+
                     }
                 }
             }
