@@ -20,6 +20,7 @@ class Main {
             for(int j = 1; j <= n; j++){
                 if(i == j) dist[i][j] = 0;
                 else dist[i][j] = INF;
+
             }
         }
 
