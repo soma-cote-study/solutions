@@ -5,7 +5,7 @@ class Node implements Comparable<Node>{
     int idx;
     int cost;
 
-    public Node(int idx, int cost){
+    public Node(int idx, int cost) {
         this.idx = idx;
         this.cost = cost;
     }
@@ -70,6 +70,7 @@ public class Main{
 
             for(Node n : graph[currentIdx]){
                 if(dist[n.idx] > currentCost + n.cost){
+
                     dist[n.idx] = currentCost + n.cost;
                     pq.offer(new Node(n.idx, dist[n.idx]));
                 }
