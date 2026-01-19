@@ -27,6 +27,7 @@ public class Main {
         System.out.print(sb);
     }
 
+    
     static void search(int depth) {
         if (depth == N) {
             sb.append(result).append('\n');
