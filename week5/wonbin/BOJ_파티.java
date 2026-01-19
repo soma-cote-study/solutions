@@ -1,27 +1,24 @@
-import java.util.*;
+import java.util*;
 import java.io.*;
 
-class Node implements Comparable<Node>{
-    int idx;
-    int cost;
+public Node implements Comparable<node>{
+    int n. cost;
 
-    public Node(int idx, int cost){
-        this.idx = idx;
+    public int(int n, int cost){
+        this.n = n;
         this.cost = cost;
     }
-
     public int compareTo(Node o){
         return this.cost - o.cost;
     }
 }
-
-class Main {
-    static final int INF = 1000000000;
+public class Main {
+    static final int INF = 100_000_000;
     static int N, M, X;
     static ArrayList<Node>[] graph;
     static ArrayList<Node>[] reverse;
 
-    public static void main(String[] args) throws IOException{
+    public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
 
@@ -31,12 +28,12 @@ class Main {
 
         graph = new ArrayList[N + 1];
         reverse = new ArrayList[N + 1];
-        for(int i = 0; i <= N; i++){
+        for (int i = 0; i <= N; i++) {
             graph[i] = new ArrayList<>();
             reverse[i] = new ArrayList<>();
         }
 
-        for(int i = 0; i < M; i++){
+        for (int i = 0; i < M; i++) {
             st = new StringTokenizer(br.readLine());
             int u = Integer.parseInt(st.nextToken());
             int v = Integer.parseInt(st.nextToken());
@@ -46,15 +43,16 @@ class Main {
             reverse[v].add(new Node(u, w));
         }
 
+        int[] party = dijkstra(graph);
         int[] home = dijkstra(graph);
-        int[] distX = dijkstra(reverse);
 
         int answer = 0;
-        for(int i = 1; i <= N; i++){
-            if(answer < home[i] + distX[i]){
-                answer = home[i] + distX[i];
+        for (int i = 1; i <= N; i++) {
+            if (answer < party[i] + home[i]) {
+                answer = party[i] + home[i]
             }
         }
+
         System.out.println(answer);
     }
 
