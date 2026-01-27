@@ -1,0 +1,65 @@
+import sys
+input = sys.stdin.readline
+
+K = int(input())
+y, x = map(int, input().split())
+
+N = 2 ** K
+board = [[0] * N for _ in range(N)]
+
+# 입력 좌표 → 0-index + 좌표계 변환
+x -= 1
+y = N - y
+
+board[x][y] = -1
+tile_num = 1
+
+
+def divide(sx, sy, size, hx, hy):
+    global tile_num
+    if size == 1:
+        return
+
+    half = size // 2
+    t = tile_num
+    tile_num += 1
+
+    # 배수구가 있는 사분면 판별
+    # 0: 좌상, 1: 우상, 2: 좌하, 3: 우하
+    quad = 0
+    if hx >= sx + half:
+        quad += 2
+    if hy >= sy + half:
+        quad += 1
+
+    # 중앙에 L 타일 배치
+    if quad != 0:
+        board[sx + half - 1][sy + half - 1] = t
+    if quad != 1:
+        board[sx + half - 1][sy + half] = t
+    if quad != 2:
+        board[sx + half][sy + half - 1] = t
+    if quad != 3:
+        board[sx + half][sy + half] = t
+
+    # 좌상
+    nx, ny = (hx, hy) if quad == 0 else (sx + half - 1, sy + half - 1)
+    divide(sx, sy, half, nx, ny)
+
+    # 우상
+    nx, ny = (hx, hy) if quad == 1 else (sx + half - 1, sy + half)
+    divide(sx, sy + half, half, nx, ny)
+
+    # 좌하
+    nx, ny = (hx, hy) if quad == 2 else (sx + half, sy + half - 1)
+    divide(sx + half, sy, half, nx, ny)
+
+    # 우하
+    nx, ny = (hx, hy) if quad == 3 else (sx + half, sy + half)
+    divide(sx + half, sy + half, half, nx, ny)
+
+
+divide(0, 0, N, x, y)
+
+for row in board:
+    print(*row)
