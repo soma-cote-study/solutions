@@ -1,6 +1,9 @@
 select f.flavor
 from first_half f
-join july j on f.flavor = j.flavor
-group by f.flavor
-order by sum(f.total_order) + sum(j.total_order) desc
+inner join(
+    select flavor, sum(total_order) as total_order
+    from july
+    group by flavor
+) as j on f.flavor = j.flavor
+order by (f.total_order + j.total_order) desc
 limit 3;
